@@ -39,23 +39,23 @@ c1,c2,c3=np.polyfit(t,y,2) # Definindo as constantes C1, C2 e C3
 p1,p2,p3=np.polyfit(x,y,2) # Definindo as constantes p1, p2 e p3
 
 # Definindo os arrays que seram preenchidos pelas velocidades
-vx = np.zeros(tamanho)
+vx1 = np.zeros(tamanho)
 vy = np.zeros(tamanho)
 
 # Preenchendo os arrays:
 # V inicial
-vx[0]=(x[1]-x[0])/t_step
+vx1[0]=(x[1]-x[0])/t_step
 vy[0]=(y[1]-y[0])/t_step
 # V final
-vx[-1]=(x[tamanho-1]-x[tamanho-2])/t_step
+vx1[-1]=(x[tamanho-1]-x[tamanho-2])/t_step
 vy[-1]=(y[tamanho-1]-y[tamanho-2])/t_step
 # Demais 'V's
 for i in range(1,tamanho-1):
-    vx[i]=(x[i+1]-x[i-1])/(2*t_step)
+    vx1[i]=(x[i+1]-x[i-1])/(2*t_step)
     vy[i]=(y[i+1]-y[i-1])/(2*t_step)
     
 # V em x médio
-vx.mean()
+vx1.mean()
 a,vy0=np.polyfit(t,vy,1) # Definindo aceleração e V em y inicial
 
 
@@ -79,11 +79,11 @@ plt.ylabel('y(m)')
 plt.xlabel(r'x(m)')
 
 # Gráfico V em x(t)
-plt.scatter(t,vx, color='black')
+plt.scatter(t,vx1, color='black')
 plt.ylabel(r'$V_x$ (m/s)')
 plt.xlabel(r't(s)')
 plt.ylim(-10,10)
-plt.plot([t.min(),t.max()],[vx.mean(),vx.mean()],color='red', linestyle='solid')
+plt.plot([t.min(),t.max()],[vx1.mean(),vx1.mean()],color='red', linestyle='solid')
 
 # Gráfico V em y(t)
 plt.scatter(t,vy,color='black')
