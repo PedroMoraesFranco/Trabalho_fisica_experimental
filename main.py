@@ -1,4 +1,3 @@
-from numpy.lib.polynomial import polyfit
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -69,3 +68,4 @@ plt.xlabel(r't(s)')
 g2=-a
 
 erro2 = (9.81-g2)/9.81
+erro2.round(2)
