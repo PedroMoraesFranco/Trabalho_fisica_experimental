@@ -44,6 +44,7 @@ vy[-1]=(y[tamanho-1]-y[tamanho-2])/t_step
 for i in range(1,tamanho-1):
     vx1[i]=(x[i+1]-x[i-1])/(2*t_step)
     vy[i]=(y[i+1]-y[i-1])/(2*t_step) 
+
 # V em x médio
 vx1.mean()
 a,vy0=np.polyfit(t,vy,1) # Definindo aceleração e V em y inicial
@@ -86,3 +87,7 @@ erro1.round(2) # Calculando o erro relativo da gravidade encontrada
 g2=-a # Gravidade obtida pela aceleração estimada
 erro2 = (9.81-g2)/9.81 # Erro relativo a gravidade encontrada acima
 erro2.round(2)
+print(g)
+print(erro1)
+print(g2)
+print(erro2)
